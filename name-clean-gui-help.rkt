@@ -1,0 +1,18 @@
+#lang racket/gui
+
+(require "name-clean-gui-prefs.rkt")
+
+(provide about
+         help)
+
+; about message box
+(define (about btn evt) 
+  (message-box 
+   (hash-ref labels 'about)
+   (hash-ref labels 'about-message)))
+
+; help frame
+(define (help btn evt)
+  (message-box 
+   (hash-ref labels 'help)
+   (hash-ref labels 'help-message)))

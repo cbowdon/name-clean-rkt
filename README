@@ -1,0 +1,3 @@
+what it does: turns "My File [2011] [9x01] WaCKYCrap.UnCL3an.avi" into "My File S09E01"
+project status: almost finished, need to create exes
+language: racket (racket-lang.org)
