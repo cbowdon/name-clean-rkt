@@ -1,8 +1,52 @@
 What it does: 
-- turns "My File [2011] [9x01] WaCKYCrap.UnCL3an.avi" into "My File S09E01"
+- turns "My File [2011] [9x01] HD.1080p.UnCL3an.avi" into "My File S09E01.avi"
+
 Project status: 
 - almost finished, need to create distributables (see issues)
+
 Language: 
-- racket (racket-lang.org)
+- Racket (racket-lang.org, min v5.1.3.7)
+
 Known issues:
-- having trouble getting the .dmg to run on Lion
+- having trouble getting the .dmg to run on Lion. Haven't tried Windows exe recently.
+
+Translations:
+- English and half a 简体中文 translation.  
+
+License:
+- I will get back to you on this. Obviously free to read and use.
+
+Full description:
+
+This is my first reasonably-sized project in Racket. Having used it to do the exercises in SICP I really wanted to play around and learn more of the language. So I decided try and write a desktop application for myself and friends to remedy a common irritation: badly-named files.
+
+The app uses regular expressions to standardize and 'clean' file names. The rules for renaming are exposed in an XML file (Commands.xml) with a simple syntax, e.g.:
+
+<allow>S[0-9]E[0-9]</allow>
+<delete>this particular phrase</delete>
+
+This should allow a sophisticated user to add their own rules on the fly. There is also a CLI version of the app to suit script-writers.
+
+As I mentioned above, this is my first reasonably sized project with Racket. Comments and criticisms are very welcome.
+
+Rough guide to the files in this repo:
+
+- rules.rkt : read the rules from Commands.xml and apply to a filename
+- handle.rkt : deal with the user's input (e.g. reject hidden files, walk subfolders)
+- cli.rkt : CLI version of the app
+- lang.rkt : read translation files and make available appropriate labels for the GUI
+- plist.rkt : read and write .plist files (used for preferences, translations)
+- helper-functions.rkt : misc helper functions
+
+- gui.rkt : just inits main loop for the GUI
+- gui-main.rkt : all the main window components are here
+- gui-prefs.rkt : all the preferences window components are here
+
+- lang-en.plist : English translations
+- lang-zh.plist : 简体中文 translations (half-finished)
+- Preferences.plist : persists user preferences
+- Commands.xml : the rules for renaming
+
+- tests.rkt : unified unit testing file
+- *-test.rkt : individual unit tests
+- test_folder/* : dummy files for testing
