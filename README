@@ -1,3 +1,8 @@
-what it does: turns "My File [2011] [9x01] WaCKYCrap.UnCL3an.avi" into "My File S09E01"
-project status: almost finished, need to create exes
-language: racket (racket-lang.org)
+What it does: 
+- turns "My File [2011] [9x01] WaCKYCrap.UnCL3an.avi" into "My File S09E01"
+Project status: 
+- almost finished, need to create distributables (see issues)
+Language: 
+- racket (racket-lang.org)
+Known issues:
+- having trouble getting the .dmg to run on Lion
