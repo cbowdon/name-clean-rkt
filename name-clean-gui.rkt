@@ -4,5 +4,4 @@
 
 (require "name-clean-gui-main.rkt")
 
-; show time
 (send frame show #t)
