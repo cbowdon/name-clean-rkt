@@ -48,7 +48,8 @@
      "秘社.The.Secret.Circle.S01E01.Chi_Eng.HDTVrip.720X400-YYeTs人人影视"
      "超级8.Super.8.2011.DVDSCR-RMVB-人人影视原创翻译中英双语字幕"
      "加勒比海盗4：惊涛怪浪.Pirates.Of.The.Caribbean.On.Stranger.Tides.2011.BD-MP4-人人影视原创翻译中英双语字幕"
-     "Archer.S03E01.Heart.of.Archness.Part1.720p.HDTV.X264.2011-bits1bytes2"))
+     "Archer.S03E01.Heart.of.Archness.Part1.720p.HDTV.X264.2011-bits1bytes2"
+     "The.Walking.Dead.S02E03.Save.the.Last.One.HDTV.XviD-FQM.[VTV]"))
   
   (define real-names-good
     (list
@@ -76,7 +77,8 @@
      "秘社 The Secret Circle S01E01"
      "超级8 Super 8 " ; OMG MASSIVE CHEAT RIGHT HERE
      "加勒比海盗4：惊涛怪浪 Pirates Of The Caribbean On Stranger Tides"
-     "Archer S03E01 Heart of Archness Part1"))
+     "Archer S03E01 Heart of Archness Part1"
+     "The Walking Dead S02E03 Save the Last One"))
   
 (define/provide-test-suite rules-tests
   
