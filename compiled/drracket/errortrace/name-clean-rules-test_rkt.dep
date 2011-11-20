@@ -1,1 +1,0 @@
-("5.2" ("d56282338bb85629f43927aeca2fbe8c77637160" . "31ac10c360dcfae64ea7e22ae81dcdda926c4920") (collects #"racket" #"main.rkt") (collects #"errortrace" #"errortrace-key.rkt") (collects #"rackunit" #"main.rkt") #"/Users/chris/Dropbox/2011-08-20-nameclean/name-clean-rkt/name-clean-rules.rkt" (collects #"racket" #"lang" #"reader.rkt"))

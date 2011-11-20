@@ -1,5 +1,0 @@
-#lang racket/gui
-
-(require "name-clean-handle.rkt"
-         "name-clean-gui-help.rkt"
-         "name-clean-gui-prefs.rkt")

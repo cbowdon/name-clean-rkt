@@ -1,5 +1,0 @@
-#lang racket
-
-(require xml/plist
-         "name-clean-settings")
-

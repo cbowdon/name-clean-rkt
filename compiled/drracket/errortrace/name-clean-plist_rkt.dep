@@ -1,1 +1,0 @@
-("5.2" ("5a906f95de0eadb6ffa56f6e65217813799a95b3" . "8cc9c8576c31af110496125398ff664b989c5b56") (collects #"racket" #"main.rkt") (collects #"errortrace" #"errortrace-key.rkt") (collects #"xml" #"plist.rkt") (collects #"racket" #"lang" #"reader.rkt"))
