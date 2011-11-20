@@ -2,8 +2,10 @@ What it does:
 - turns "My File [2011] [9x01] HD.1080p.UnCL3an.avi" into "My File S09E01.avi"
 
 Project status: 
+- Source is all working
 - Windows distributable not ready (see issues)
 - OSX distributable ready (tested on Lion only)
+- Not yet tested on Linux
 
 Language: 
 - Racket (racket-lang.org, min v5.1.3.7)
