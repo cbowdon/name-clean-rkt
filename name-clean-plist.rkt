@@ -4,7 +4,14 @@
 (provide hash->dict
          dict->hash
          hash->plist
-         plist->hash)
+         plist->hash
+         plist-location
+         plist-prefix
+         preferences-file)
+
+(define plist-prefix "com.bowdon.NameClean.")
+(define plist-location (path->string (build-path (find-system-path 'pref-dir) plist-prefix)))
+(define preferences-file (string-append plist-location "preferences.plist"))
 
 ; internal conversions to/from dict grammar
 ; currently ignores nested dicts
@@ -26,6 +33,7 @@
   (dict-iter dict (make-hash)))
 
 ; writing hash to / reading hash from plist file
+; depends on the caller addressing the file appropriately
 (define (hash->plist hash-table sfile)
   (when [file-exists? sfile] (delete-file sfile))
   (call-with-output-file sfile
@@ -37,4 +45,4 @@
     (lambda (in) (dict->hash (read-plist in)))))
 
 (define (read-settings)
-  (plist->hash "Settings.plist"))
+  (plist->hash preferences-file))

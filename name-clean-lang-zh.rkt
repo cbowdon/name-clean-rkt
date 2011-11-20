@@ -6,7 +6,9 @@
 
 (provide write-translation-zh)
 
-(define dict-en
+(define this-file (string-append plist-location "lang-zh.plist"))
+
+(define dict-zh
   `(dict
     (assoc-pair "language" "简体中文")
     (assoc-pair "name" "文件名清洁助手")
@@ -43,8 +45,9 @@
 \n如果您不满意清洁后的文件名, 您可以点击“还原文件名”, 重新选择您希望清洁的文件。")
     (assoc-pair "about-message" "© C.Bowdon\nc.bowdon@gmail.com")))
 
-(define (write-translation-zh)
-  (when (file-exists? "lang-zh.plist")
-    (delete-file "lang-zh.plist"))
-  (call-with-output-file "lang-zh.plist"
-    (lambda (out) (write-plist dict-en out))))
+(define (write-translation-zh)  
+  (when (file-exists? this-file)
+    (delete-file this-file))  
+  (call-with-output-file this-file
+    (lambda (out) (write-plist dict-zh out))))
+                                              

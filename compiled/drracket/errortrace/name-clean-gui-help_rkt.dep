@@ -1,0 +1,1 @@
+("5.2" ("99453a5a7af4b7033fb33f8e9be65890ebfa4e42" . "ee9f3880b6117a4fbb8bce763ada54c5a77b7319") (collects #"racket" #"gui.rkt") (collects #"errortrace" #"errortrace-key.rkt") #"/Users/chris/Dropbox/2011-08-20-nameclean/name-clean-rkt/name-clean-gui-prefs.rkt" (collects #"racket" #"gui" #"lang" #"reader.rkt"))

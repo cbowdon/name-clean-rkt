@@ -6,6 +6,8 @@
 
 (provide write-translation-en)
 
+(define this-file (string-append plist-location "lang-en.plist"))
+
 (define dict-en
   `(dict
     (assoc-pair "language" "English")
@@ -43,7 +45,7 @@
     (assoc-pair "about-message" "© C.Bowdon\nc.bowdon@gmail.com")))
 
 (define (write-translation-en)  
-  (when (file-exists? "lang-en.plist")
-    (delete-file "lang-en.plist"))  
-  (call-with-output-file "lang-en.plist"
+  (when (file-exists? this-file)
+    (delete-file this-file))  
+  (call-with-output-file this-file
     (lambda (out) (write-plist dict-en out))))

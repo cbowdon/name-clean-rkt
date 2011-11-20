@@ -1,0 +1,44 @@
+#lang racket/gui
+
+(require "name-clean-lang.rkt")
+
+(provide labels
+         edit-prefs)
+
+; default language
+(define language "English")
+(define labels (hash-ref translation-table language))
+
+; set language
+(define (set-language! choice evt)
+  (let* ([seln-num (send choice get-selection)]
+         [seln (list-ref (hash-keys translation-table) seln-num)])
+    (set! language seln)
+    (set! labels (hash-ref translation-table language))
+    (send choice-translations set-selection seln-num)))
+
+; show
+(define (edit-prefs btn evt)
+  (send frame-prefs show #t))
+
+; close prefs
+(define (close-prefs btn evt)  
+  (send frame-prefs show #f))
+
+; gui
+(define frame-prefs (new frame% 
+                         [label (hash-ref labels 'prefs)]))
+(define hpane (new vertical-pane% 
+                   [parent frame-prefs] 
+                   [alignment (list 'center 'center)]))
+(define choice-translations (new choice%
+                                 [parent hpane]                                 
+                                 [label (hash-ref labels 'app-language)]
+                                 [choices (hash-keys translation-table)]
+                                 [callback set-language!]))
+(define btn-close (new button% 
+                       [parent hpane] 
+                       [label (hash-ref labels 'ok)] 
+                       [callback close-prefs]))
+
+

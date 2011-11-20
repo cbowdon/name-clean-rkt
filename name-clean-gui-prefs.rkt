@@ -10,10 +10,17 @@
          edit-prefs
          frame-prefs)
 
+; redefined these here due to: import order error?
+; this error disappeared on restarting DrRacket
+; found a bug?
+;;(define gui-plist-prefix "com.bowdon.NameClean.")
+;;(define gui-plist-location (path->string (build-path (find-system-path 'pref-dir) gui-plist-prefix)))
+;;(define gui-preferences-file (string-append gui-plist-location "preferences.plist"))
+
 ; handling the preferences table
 (define (prefs-handler)
   (let ([p-table (make-hash)]
-        [p-file "Preferences.plist"])
+        [p-file preferences-file])
     ; change 
     (define (add x y)
       (hash-set! p-table x y))

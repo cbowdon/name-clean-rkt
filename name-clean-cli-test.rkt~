@@ -1,0 +1,19 @@
+#lang racket
+
+(require rackunit "cmd.rkt")
+
+(define filenames-in
+  (list
+   "Commands.xml"))
+
+
+(define filenames-out
+  (list
+   "Commands.xml"))
+
+(test-case
+ "Parse arg?"
+ (map check-equal?
+      (map parse-arg filenames-in)
+      filenames-out))
+

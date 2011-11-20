@@ -2,11 +2,15 @@
 
 (require xml)
 
-(provide write-default-commands)
+(provide write-default-commands
+         rules-file)
+
+(define rules-file-name "NameCleanRules.xml")
+(define rules-file (build-path (find-system-path 'home-dir) rules-file-name))
 
 (define (write-default-commands)
-  (when (not (file-exists? "Commands.xml"))
-    (call-with-output-file "Commands.xml"
+  (when (not (file-exists? rules-file))
+    (call-with-output-file rules-file
       (lambda (out)
         (write-xml/content default-commands out)))))
 

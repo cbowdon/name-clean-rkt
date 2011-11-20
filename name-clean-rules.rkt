@@ -7,11 +7,11 @@
          test-file)
 
 (define test-file  
-  (if [file-exists? "Commands.xml"]
-      "Commands.xml"
+  (if [file-exists? rules-file]
+      rules-file
       (begin 
         (write-default-commands)
-        "Commands.xml")))
+        rules-file)))
 
 ; load rules
 (define (make-rule rulelist)

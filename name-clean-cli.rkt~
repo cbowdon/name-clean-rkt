@@ -1,0 +1,25 @@
+#lang racket
+(require "rules.rkt")
+
+(provide parse-arg
+         cmd-args)
+
+(define rules (get-rules test-file))
+
+; parse a single filename
+(define (parse-arg arg)
+  (let ((name (path->string (path-replace-suffix arg "")))
+        (ext (string-append "." (bytes->string/utf-8 (filename-extension arg)))))
+    (string-append (apply-rules name rules) ext)))
+
+; parse all command-line arguments
+(define (cmd-args func)
+  (map (lambda (arg)
+         (cond ((file-exists? arg) 
+                (func arg (parse-arg arg)))
+               (else 
+                (error "Is not a file:" arg)))) 
+       (vector->list (current-command-line-arguments))))
+
+(cmd-args rename-file-or-directory)
+

@@ -15,8 +15,9 @@
 (define translation-table (make-hash))
 
 (define (find-translation-files)
-  (filter (lambda (x) (regexp-match "^lang-[a-z][a-z]\\.plist$" x))
-          (directory-list (current-directory))))
+  (map (lambda (x) (build-path (find-system-path 'pref-dir) x))
+       (filter (lambda (x) (regexp-match (string-append plist-prefix "lang-[a-z][a-z]\\.plist$") x))
+               (directory-list (find-system-path 'pref-dir)))))
 
 (define (get-translation plist)
   (let ([translation-hash (plist->hash plist)])
