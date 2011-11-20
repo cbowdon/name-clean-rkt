@@ -2,151 +2,105 @@
 
 (require xml)
 
-(provide write-default-commands
-         rules-file)
+(provide copy-master-rules-file
+         rules-file-loc)
 
-(define rules-file-name "NameCleanRules.xml")
-(define rules-file (build-path (find-system-path 'home-dir) rules-file-name))
+(define master-rules-file-name "MasterRules.xml")
+(define rules-file-name ".NameCleanRules.xml")
+(define rules-file-loc (build-path (find-system-path 'home-dir) rules-file-name))
 
+; find directory where resources are kept
+(define (get-resources-dir)
+  (let ([system (system-type 'os)]
+        [exe-dir (path-only (find-system-path 'run-file))])
+    (cond [(eq? system 'macosx) 
+           (apply build-path (append (drop-right (explode-path exe-dir) 1) '("Resources")))]
+          [(eq? system 'windows) exe-dir]
+          [(eq? system 'unix) (find-system-path 'home-dir)])))
+
+; copy from resources directory into rules-file-loc
+(define (copy-master-rules-file)
+  (let ([master (build-path (get-resources-dir) master-rules-file-name)])
+    (if [file-exists? master]
+        (copy-file master rules-file-loc)
+        (write-default-commands))))
+
+; write the hard-coded defaults
 (define (write-default-commands)
-  (when (not (file-exists? rules-file))
-    (call-with-output-file rules-file
+  (when (not (file-exists? rules-file-loc))
+    (call-with-output-file rules-file-loc
       (lambda (out)
         (write-xml/content default-commands out)))))
 
+; the hard-coded defaults
 (define default-commands
   (xexpr->xml
    '(Commands
-     ()
-     "\n\n  "
      (toSintEint () "[Ss][0-9]+[Ee][0-9]+")
-     "\n  "
      (toSintEint () "\\[[0-9]+\\.[0-9]+\\]")
-     "\n  "
      (toSintEint () "\\[[0-9]+x[0-9]+\\]")
-     "\n  "
      (toSintEint () "[0-9]+x[0-9]+")
-     "\n  \n  "
      (delete () "www\\..+\\.(ro|com|ru|cn)")
-     "\n\n  "
-     "\n  "
      (space () "\\.")
-     "\n  "
      (space () "(?=\\[)")
-     "\n  "
      (space () "\\_")
-     "\n\n  "
-     "\n  "
      (allow () "S[0-9][0-9]?E[0-9][0-9]?")
-     "\n  "
      (allow () "Season|season")
-     "\n  "
      (allow () "Episode|episode")
-     "\n  "
      (allow () " [0-9][0-9]? ")
-     "\n  "
      (allow () "Ma?c[A-Z][a-z][a-z]+")
-     "\n  "
      (allow () "DeLorean")
-     "\n  "
      (allow () " I ")
-     "\n  "
      (allow () " II ")
-     "\n  "
      (allow () " III ")
-     "\n  "
      (allow () " IV ")
-     "\n  "
      (allow () " V ")
-     "\n  "
      (allow () " VI ")
-     "\n  "
      (allow () " VII ")
-     "\n  "
      (allow () " VIII ")
-     "\n  "
      (allow () " IX ")
-     "\n  "
      (allow () " X ")
-     "\n    \n  "
-     "\n  "
-     (delete () "Blu(\\.|\\-|\\_| )*Ray")
-     "\n  "
      (delete () "^\\[.+\\]")
-     "\n  "
-     (delete () "x264")
-     "\n  "
-     (delete () "[A-Z][a-z]?[0-9]")
-     "\n  "
+     (delete () "[A-Za-z]+[0-9]+([a-z]+[0-9]+)+")
+     (delete () "[A-Z]+[a-z]?[0-9]")
      (delete () "[a-z][0-9][0-9]+")
-     "\n  "
      (delete () "www\\.[A-Za-z]\\.")
-     "\n  "
      (delete () "@")
-     "\n  "
      (delete () "\\[.+\\]")
-     "\n  "
      (delete () "(19|20)[0-9][0-9]")
-     "\n  "
-     (delete () "^(1080)|(720)p")
-     "\n  "
      (delete () "\\[[^0-9]+\\]")
-     "\n  "
      (delete () "\\([^0-9]+\\)")
-     "\n  "
-     (delete () "[A-Z]*[a-z]+[A-Z]+[a-z]*.*")
-     "\n  "
+     (delete () "^(1080)|(720)p")
+     (delete
+      ()
+      "[0-9][0-9][0-9][0-9]?[Xx][0-9][0-9][0-9][0-9]?")
      (delete () "([Xx]|[Hh])[Vv][Ii][Dd]")
-     "\n  "
-     (delete () " ?HD")
-     "\n  "
-     (delete () "[A-Z][A-Z]+")
-     "\n  "
      (delete () "hdtv")
-     "\n  "
+     (delete () " ?HD")
+     (delete () "Blu(\\.|\\-|\\_| )*Ray")
+     (delete () "[Xx]264")
+     (delete () "[A-Z]*[a-z]+[A-Z]+[a-z]*.*")
+     (delete () "[A-Z][A-Z]+")
      (delete () "\\.[A-Za-z]+")
-     "\n  "
      (delete () "\\..*")
-     "\n  "
      (delete () "(dvd)|(DVD)")
-     "\n  "
      (delete () "[A-Za-z][Rr][Ii][Pp]")
-     "\n  "
      (delete () " [Ii][Pp]")
-     "\n  "
      (delete () "[0-9][0-9][0-9][0-9][0-9]+")
-     "\n  "
      (delete () "[A-Z][a-z]+\\-[A-Z][a-z]+")
-     "  \n  "
      (delete () "人人影视原创")
-     "\n  "
      (delete () "听译")
-     "\n  "
      (delete () "翻译中英双语字幕")
-     "\n  "
      (delete () "中文字幕")
-     "\n  "
      (delete () "中英双语字幕")
-     "\n\n  "
-     "\n  "
+     (delete () " Chi ")
      (Pillock () "Piers Morgan")
-     "\n\n  "
-     "\n  "
      (delete () "\\(\\)")
-     "\n  "
      (delete () "\\[\\]")
-     "\n  "
      (delete () "【")
-     "\n  "
      (delete () "】")
-     "\n  "
      (delete () " \\-")
-     "\n  "
      (space () "  +")
-     "\n  "
      (delete () "\\- ?$")
-     "\n  "
      (delete () "^ ")
-     "\n  "
-     (delete () " $")
-     "\n      \n")))
+     (delete () " $"))))

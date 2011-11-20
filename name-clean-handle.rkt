@@ -9,7 +9,7 @@
          is-hidden?
          tables)
 
-(define rules (get-rules test-file))
+(define rules (get-rules rules-file))
 
 ; a procedure-object to that controls the tables
 (define (handler)

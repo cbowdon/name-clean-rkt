@@ -4,7 +4,7 @@
 
 (require rackunit "name-clean-rules.rkt")
 
-(define rules (get-rules test-file))
+(define rules (get-rules rules-file))
 
 (define white-list
     (list   

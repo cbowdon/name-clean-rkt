@@ -4,14 +4,14 @@
 
 (provide get-rules
          apply-rules
-         test-file)
+         rules-file)
 
-(define test-file  
-  (if [file-exists? rules-file]
-      rules-file
+(define rules-file  
+  (if [file-exists? rules-file-loc]
+      rules-file-loc
       (begin 
-        (write-default-commands)
-        rules-file)))
+        (copy-master-rules-file)
+        rules-file-loc)))
 
 ; load rules
 (define (make-rule rulelist)

@@ -10,7 +10,7 @@
    '()
    (list "test_folder")
    (list "-v" "test_folder")
-   (list "-v" "test_folder" "Commands.xml")))
+   (list "-v" "test_folder" "name-clean-cli.rkt")))
 
 (test-case
  "Simplest use"

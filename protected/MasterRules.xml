@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Commands>
+
+  <!-- group order matters -->
+  <!-- series notation -->
+  <!-- web addresses -->
+  <!-- prep string -->
+  <!-- allow -->
+  <!-- delete -->
+  <!-- custom -->
+  <!-- whitespace treatment -->
+    
+  <!-- S00E00 notation -->
+  <toSintEint>[Ss][0-9]+[Ee][0-9]+</toSintEint>
+  <toSintEint>\[[0-9]+\.[0-9]+\]</toSintEint>
+  <toSintEint>\[[0-9]+x[0-9]+\]</toSintEint>
+  <toSintEint>[0-9]+x[0-9]+</toSintEint>
+  
+  <delete>www\..+\.(ro|com|ru|cn)</delete>
+
+  <!-- prep rest of string -->
+  <space>\.</space>
+  <space>(?=\[)</space>
+  <space>\_</space>
+
+  <!-- allowed -->
+  <allow>S[0-9][0-9]?E[0-9][0-9]?</allow>
+  <allow>Season|season</allow>
+  <allow>Episode|episode</allow>
+  <allow> [0-9][0-9]? </allow>
+  <allow>Ma?c[A-Z][a-z][a-z]+</allow>
+  <allow>DeLorean</allow>
+  <allow> I </allow>
+  <allow> II </allow>
+  <allow> III </allow>
+  <allow> IV </allow>
+  <allow> V </allow>
+  <allow> VI </allow>
+  <allow> VII </allow>
+  <allow> VIII </allow>
+  <allow> IX </allow>
+  <allow> X </allow>
+    
+  <!-- delete -->
+  <delete>^\[.+\]</delete>
+  <!-- delete number-letter mixes -->
+  <delete>[A-Za-z]+[0-9]+([a-z]+[0-9]+)+</delete>	
+  <delete>[A-Z]+[a-z]?[0-9]</delete>
+  <delete>[a-z][0-9][0-9]+</delete>
+  <!-- delete websites -->
+  <delete>www\.[A-Za-z]\.</delete>
+  <delete>@</delete>
+  <delete>\[.+\]</delete>
+  <!-- delete the year -->
+  <delete>(19|20)[0-9][0-9]</delete>
+  <delete>\[[^0-9]+\]</delete>
+  <delete>\([^0-9]+\)</delete>
+  <!-- delete references to vid size -->
+  <delete>^(1080)|(720)p</delete>
+  <delete>[0-9][0-9][0-9][0-9]?[Xx][0-9][0-9][0-9][0-9]?</delete>
+  <!-- delete XviD-type tags -->
+  <delete>([Xx]|[Hh])[Vv][Ii][Dd]</delete>
+  <delete>hdtv</delete>
+  <!-- delete HD -->
+  <delete> ?HD</delete>
+  <!-- delete Blu Ray -->
+  <delete>Blu(\.|\-|\_| )*Ray</delete>
+  <!-- delete x264 -->
+  <delete>[Xx]264</delete>  
+  <!-- delete funny capitalizations -->
+  <delete>[A-Z]*[a-z]+[A-Z]+[a-z]*.*</delete>
+  <!-- delete all-caps -->
+  <delete>[A-Z][A-Z]+</delete>
+  <delete>\.[A-Za-z]+</delete>
+  <delete>\..*</delete>
+  <!-- delete rips-->
+  <delete>(dvd)|(DVD)</delete>
+  <delete>[A-Za-z][Rr][Ii][Pp]</delete>
+  <delete> [Ii][Pp]</delete>
+  <!-- delete excessive numbers -->
+  <delete>[0-9][0-9][0-9][0-9][0-9]+</delete>
+  <!-- delete capitalized hyphenated words -->
+  <delete>[A-Z][a-z]+\-[A-Z][a-z]+</delete>
+  <!-- delete this site -->
+  <delete>人人影视原创</delete>
+  <!-- delete referenes to translations -->
+  <delete>听译</delete>
+  <delete>翻译中英双语字幕</delete>
+  <delete>中文字幕</delete>
+  <delete>中英双语字幕</delete>
+  <delete> Chi </delete>
+
+  <!-- custom / general formatting -->
+  <Pillock>Piers Morgan</Pillock>
+
+  <!-- leftover white-space treatement -->
+  <delete>\(\)</delete>
+  <delete>\[\]</delete>
+  <delete>【</delete>
+  <delete>】</delete>
+  <delete> \-</delete>
+  <space>  +</space>
+  <delete>\- ?$</delete>
+  <delete>^ </delete>
+  <delete> $</delete>
+      
+</Commands>
