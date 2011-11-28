@@ -49,7 +49,8 @@
      "超级8.Super.8.2011.DVDSCR-RMVB-人人影视原创翻译中英双语字幕"
      "加勒比海盗4：惊涛怪浪.Pirates.Of.The.Caribbean.On.Stranger.Tides.2011.BD-MP4-人人影视原创翻译中英双语字幕"
      "Archer.S03E01.Heart.of.Archness.Part1.720p.HDTV.X264.2011-bits1bytes2"
-     "The.Walking.Dead.S02E03.Save.the.Last.One.HDTV.XviD-FQM.[VTV]"))
+     "The.Walking.Dead.S02E03.Save.the.Last.One.HDTV.XviD-FQM.[VTV]"
+     "The.Walking.Dead.S02E07.Pretty.Much.Dead.Already.HDTV.XviD-FQM.[VTV]"))
   
   (define real-names-good
     (list
@@ -78,7 +79,8 @@
      "超级8 Super 8 " ; OMG MASSIVE CHEAT RIGHT HERE
      "加勒比海盗4：惊涛怪浪 Pirates Of The Caribbean On Stranger Tides"
      "Archer S03E01 Heart of Archness Part1"
-     "The Walking Dead S02E03 Save the Last One"))
+     "The Walking Dead S02E03 Save the Last One"
+     "The Walking Dead S02E07 Pretty Much Dead Already"))
   
 (define/provide-test-suite rules-tests
   
