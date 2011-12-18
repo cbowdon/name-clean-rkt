@@ -2,6 +2,10 @@
 
 ;; In this file: test cases for the renaming rules (effectively tests "Commands.xml")
 
+; note to self when editing:
+; first edit .NameCleanRules.xml
+; then copy the changes into master files and hard-coding
+
 (require rackunit "name-clean-rules.rkt")
 
 (define rules (get-rules rules-file))
@@ -48,10 +52,10 @@
      "秘社.The.Secret.Circle.S01E01.Chi_Eng.HDTVrip.720X400-YYeTs人人影视"
      "超级8.Super.8.2011.DVDSCR-RMVB-人人影视原创翻译中英双语字幕"
      "加勒比海盗4：惊涛怪浪.Pirates.Of.The.Caribbean.On.Stranger.Tides.2011.BD-MP4-人人影视原创翻译中英双语字幕"
-     "Archer.S03E01.Heart.of.Archness.Part1.720p.HDTV.X264.2011-bits1bytes2"
+     "Archer.S03E01.Heart.of.Archness.Part1.720p.HDTV.X264.2011-bits1bytes2"     
+     "jonathan.creek.s02e07.black.canary.1998.christmas.special.dvdrip.xvid"
      "The.Walking.Dead.S02E03.Save.the.Last.One.HDTV.XviD-FQM.[VTV]"
-     "The.Walking.Dead.S02E07.Pretty.Much.Dead.Already.HDTV.XviD-FQM.[VTV]"
-     "jonathan.creek.s02e07.black.canary.1998.christmas.special.dvdrip.xvid"))
+     "The.Walking.Dead.S02E07.Pretty.Much.Dead.Already.HDTV.XviD-FQM.[VTV]"))
   
   (define real-names-good
     (list
@@ -80,9 +84,9 @@
      "超级8 Super 8 " ; OMG MASSIVE CHEAT RIGHT HERE
      "加勒比海盗4：惊涛怪浪 Pirates Of The Caribbean On Stranger Tides"
      "Archer S03E01 Heart Of Archness Part1"
+     "Jonathan Creek S02E07 Black Canary Christmas Special"
      "The Walking Dead S02E03 Save The Last One"
-     "The Walking Dead S02E07 Pretty Much Dead Already"
-     "Jonathan Creek S02E07 Black Canary Christmas Special"))
+     "The Walking Dead S02E07 Pretty Much Dead Already"))
   
 (define/provide-test-suite rules-tests
   

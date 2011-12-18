@@ -5,7 +5,7 @@ Project status:
 - Source is all working
 - Windows distributable not ready (see issues)
 - OSX distributable ready (tested on Lion only)
-- Not yet tested on Linux
+- Not yet tested properly on Linux
 
 Language: 
 - Racket (racket-lang.org, min v5.1.3.7)
@@ -15,7 +15,7 @@ Known issues:
 - No custom icon yet, resource files not properly packaged on OSX
 
 Translations:
-- English and half a 简体中文 translation.  
+- English and 简体中文
 
 License:
 - GPL
@@ -50,7 +50,7 @@ Rough guide to the files in this repo:
 - lang-zh.plist : 简体中文 translations (half-finished)
 
 - Preferences.plist : persists user preferences
-- MasterRules.xml : the master list of rules for renaming
+[- MasterRules.xml : the master list of rules for renaming] DELETED: just editing the Racket code (see commands.rkt) directly is easier. Editing local copies still works, but the master copy is effectively locked.
 
 - tests.rkt : unified unit testing file
 - *-test.rkt : individual unit tests

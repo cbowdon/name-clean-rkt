@@ -35,15 +35,20 @@
 ; the hard-coded defaults
 (define default-commands
   (xexpr->xml
+   (add-between 
    '(Commands
+     "\n"
      (toSintEint () "[Ss][0-9]+[Ee][0-9]+")
      (toSintEint () "\\[[0-9]+\\.[0-9]+\\]")
      (toSintEint () "\\[[0-9]+x[0-9]+\\]")
      (toSintEint () "[0-9]+x[0-9]+")
+     "\n"     
      (delete () "www\\..+\\.(ro|com|ru|cn)")
+     "\n"     
      (space () "\\.")
      (space () "(?=\\[)")
      (space () "\\_")
+     "\n"
      (allow () "S[0-9][0-9]?E[0-9][0-9]?")
      (allow () "Season|season")
      (allow () "Episode|episode")
@@ -60,6 +65,7 @@
      (allow () " VIII ")
      (allow () " IX ")
      (allow () " X ")
+     "\n"
      (delete () "^\\[.+\\]")
      (delete () "[A-Za-z]+[0-9]+([a-z]+[0-9]+)+")
      (delete () "[A-Z]+[a-z]?[0-9]")
@@ -75,7 +81,8 @@
       ()
       "[0-9][0-9][0-9][0-9]?[Xx][0-9][0-9][0-9][0-9]?")
      (delete () "([Xx]|[Hh])[Vv][Ii][Dd]")
-     (delete () "hdtv")
+     (delete () "(HDTV|hdtv)[Rr][Ii][Pp]")
+     (delete () "[Hh][Dd][Tt][Vv]")
      (delete () " ?HD")
      (delete () "Blu(\\.|\\-|\\_| )*Ray")
      (delete () "[Xx]264")
@@ -83,7 +90,8 @@
      (delete () "[A-Z][A-Z]+")
      (delete () "\\.[A-Za-z]+")
      (delete () "\\..*")
-     (delete () "(dvd)|(DVD)")
+     (delete () "[Dd][Vv][Dd][Rr][Ii][Pp]")
+     (delete () "(dvd|DVD)")
      (delete () "[A-Za-z][Rr][Ii][Pp]")
      (delete () " [Ii][Pp]")
      (delete () "[0-9][0-9][0-9][0-9][0-9]+")
@@ -93,8 +101,10 @@
      (delete () "翻译中英双语字幕")
      (delete () "中文字幕")
      (delete () "中英双语字幕")
-     (delete () " Chi ")
+     (delete () "(Chi Eng|Eng Chi)")
+     "\n"
      (Pillock () "Piers Morgan")
+     "\n"
      (delete () "\\(\\)")
      (delete () "\\[\\]")
      (delete () "【")
@@ -103,4 +113,7 @@
      (space () "  +")
      (delete () "\\- ?$")
      (delete () "^ ")
-     (delete () " $"))))
+     (delete () " $")
+     "\n")
+   "\n")
+   ))
