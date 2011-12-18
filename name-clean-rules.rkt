@@ -37,7 +37,7 @@
         (else (replace (cdr rule) name (symbol->string (car rule))))))
 
 (define (apply-rules name rules)
-  (cond [(stream-empty? rules) (first-char-upcase (allow-clean name))]
+  (cond [(stream-empty? rules) (string-titlecase-proper (allow-clean name))]
         [(not (equal? (apply-one name (stream-first rules)) name))
          (apply-rules (apply-one name (stream-first rules)) (stream-rest rules))]
         [else 
@@ -77,3 +77,7 @@
     (if (empty? x)
         str
         (list->string (cons (char-upcase (car x)) (cdr x))))))
+
+; Titlecase for all words
+(define (string-titlecase-proper str)
+  (string-join (map first-char-upcase (regexp-split " +" str)) " "))

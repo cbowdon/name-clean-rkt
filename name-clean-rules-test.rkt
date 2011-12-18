@@ -50,7 +50,8 @@
      "加勒比海盗4：惊涛怪浪.Pirates.Of.The.Caribbean.On.Stranger.Tides.2011.BD-MP4-人人影视原创翻译中英双语字幕"
      "Archer.S03E01.Heart.of.Archness.Part1.720p.HDTV.X264.2011-bits1bytes2"
      "The.Walking.Dead.S02E03.Save.the.Last.One.HDTV.XviD-FQM.[VTV]"
-     "The.Walking.Dead.S02E07.Pretty.Much.Dead.Already.HDTV.XviD-FQM.[VTV]"))
+     "The.Walking.Dead.S02E07.Pretty.Much.Dead.Already.HDTV.XviD-FQM.[VTV]"
+     "jonathan.creek.s02e07.black.canary.1998.christmas.special.dvdrip.xvid"))
   
   (define real-names-good
     (list
@@ -67,7 +68,7 @@
      "District9"
      "Spooks S01E01"
      "Bridesmaids"
-     "Pirates of the Caribbean On Stranger Tides"
+     "Pirates Of The Caribbean On Stranger Tides"
      "Forgot What Program It Was"
      "Red Cliff"
      "喜羊羊与灰太狼之兔年顶呱呱"
@@ -78,9 +79,10 @@
      "秘社 The Secret Circle S01E01"
      "超级8 Super 8 " ; OMG MASSIVE CHEAT RIGHT HERE
      "加勒比海盗4：惊涛怪浪 Pirates Of The Caribbean On Stranger Tides"
-     "Archer S03E01 Heart of Archness Part1"
-     "The Walking Dead S02E03 Save the Last One"
-     "The Walking Dead S02E07 Pretty Much Dead Already"))
+     "Archer S03E01 Heart Of Archness Part1"
+     "The Walking Dead S02E03 Save The Last One"
+     "The Walking Dead S02E07 Pretty Much Dead Already"
+     "Jonathan Creek S02E07 Black Canary Christmas Special"))
   
 (define/provide-test-suite rules-tests
   
@@ -108,3 +110,4 @@
    (map check-equal? 
         (map (lambda (x) (apply-rules x rules)) real-names-bad) 
         real-names-good)))
+
