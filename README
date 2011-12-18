@@ -5,7 +5,7 @@ Project status:
 - Source is all working
 - Windows distributable not ready (see issues)
 - OSX distributable ready (tested on Lion only)
-- Not yet tested properly on Linux
+- Distributable not yet tested on Linux; runs in DrRacket just fine
 
 Language: 
 - Racket (racket-lang.org, min v5.1.3.7)
