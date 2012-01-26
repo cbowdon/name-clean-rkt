@@ -25,6 +25,14 @@
         (copy-file master rules-file-loc)
         (write-default-commands))))
 
+; predicate for when to write new commands
+; not complete yet though - we shouldn't overwrite a file the user has changed themselves.
+; what to do?
+(define (overwrite?)
+  (or (not (file-exists? rules-file-loc))
+       (< (file-or-directory-modify-seconds rules-file-loc) (file-or-directory-modify-seconds find-executable-path))))
+
+
 ; write the hard-coded defaults
 (define (write-default-commands)
   (when (not (file-exists? rules-file-loc))
