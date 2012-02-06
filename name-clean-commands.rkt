@@ -85,6 +85,8 @@
       (delete () "\\[[^0-9]+\\]")
       (delete () "\\([^0-9]+\\)")
       (delete () "^(1080)|(720)p")
+      (delete () "fqm")
+      (delete () "[0-9][Hh][Dd]")
       (delete () "[0-9][0-9][0-9][0-9]?[Xx][0-9][0-9][0-9][0-9]?")     
       (delete () "([Xx]|[Hh])[Vv][Ii][Dd]")
       (delete () "(HDTV|hdtv|WEB|web)[Rr][Ii][Pp]")

@@ -26,6 +26,7 @@
    "[2009]"
    "2009"))
 
+; these are names I found on the Internet
 (define real-names-bad
   (list
    "Test Space End "
@@ -57,7 +58,9 @@
    "The.Walking.Dead.S02E03.Save.the.Last.One.HDTV.XviD-FQM.[VTV]"
    "The.Walking.Dead.S02E07.Pretty.Much.Dead.Already.HDTV.XviD-FQM.[VTV]"
    "摩登家庭.Modern.Family.S03E03.Chi_Eng.WEBrip.720X400-YYeTs人人影视"
-   "铁甲钢拳.Real.Steel.2011.DVD-RMVB.中文字幕-深影字幕组"))
+   "铁甲钢拳.Real.Steel.2011.DVD-RMVB.中文字幕-深影字幕组"
+   "archer.2009.s03e02.hdtv.xvid-fqm"
+   "archer.2009.s03e03.hdtv.xvid-2hd"))
 
 (define real-names-good
   (list
@@ -83,14 +86,16 @@
    "Bad Teacher"
    "Huge Marvel Comics Collection"
    "秘社 The Secret Circle S01E01"
-   "超级8 Super 8 " ; OMG MASSIVE CHEAT RIGHT HERE
+   "超级8 Super 8 " ; cheating, can't eliminate that blank char
    "加勒比海盗4：惊涛怪浪 Pirates Of The Caribbean On Stranger Tides"
    "Archer S03E01 Heart Of Archness Part1"
    "Jonathan Creek S02E07 Black Canary Christmas Special"
    "The Walking Dead S02E03 Save The Last One"
    "The Walking Dead S02E07 Pretty Much Dead Already"
    "摩登家庭 Modern Family S03E03"
-   "铁甲钢拳 Real Steel"))
+   "铁甲钢拳 Real Steel"
+   "Archer S03E02"
+   "Archer S03E03"))
 
 (define/provide-test-suite rules-tests
   
