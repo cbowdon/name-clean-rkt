@@ -60,7 +60,9 @@
    "摩登家庭.Modern.Family.S03E03.Chi_Eng.WEBrip.720X400-YYeTs人人影视"
    "铁甲钢拳.Real.Steel.2011.DVD-RMVB.中文字幕-深影字幕组"
    "archer.2009.s03e02.hdtv.xvid-fqm"
-   "archer.2009.s03e03.hdtv.xvid-2hd"))
+   "archer.2009.s03e03.hdtv.xvid-2hd"
+   "The Walking Dead 095 2012 Minutemen-DTs (1)"
+   ))
 
 (define real-names-good
   (list
@@ -95,7 +97,8 @@
    "摩登家庭 Modern Family S03E03"
    "铁甲钢拳 Real Steel"
    "Archer S03E02"
-   "Archer S03E03"))
+   "Archer S03E03"
+   "The Walking Dead 095"))
 
 (define/provide-test-suite rules-tests
   
